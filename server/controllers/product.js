@@ -3,14 +3,22 @@ const Product = require('../models/Product.js');
 // Add a product
 const addProduct = async (req, res) => {
   const { name, category, description, price, discount } = req.body;
-  const newProduct = new Product({ name, category, description, price, discount, seller: req.user.id });
+  const newProduct = new Product({ 
+    name, 
+    category, 
+    description, 
+    price, 
+    discount, 
+    seller: req.user.id // Ensure the product is associated with the logged-in seller
+  });
   await newProduct.save();
   res.status(201).json(newProduct);
 };
 
+
 // Get products for a specific seller
 const getProductsBySeller = async (req, res) => {
-  const products = await Product.find({ seller: req.user.id });
+  const products = await Product.find({});
   res.status(200).json(products);
 };
 

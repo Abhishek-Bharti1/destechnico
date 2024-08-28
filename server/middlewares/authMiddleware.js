@@ -22,4 +22,13 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-module.exports = { authenticateToken };
+const authorizeRole = (role) => {
+  return (req, res, next) => {
+    if (req.user.role !== role) {
+      return res.status(403).json({ message: `Access denied, only ${role}s can perform this action.` });
+    }
+    next();
+  };
+};
+
+module.exports = { authenticateToken, authorizeRole };
