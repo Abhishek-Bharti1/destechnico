@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+.env.test
+.env.production
+
+# Build output
+dist/
+
+# Temporary files
+*.tmp
+
+# Mac system files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# NPM lock file
+package-lock.json
