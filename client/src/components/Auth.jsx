@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Auth = ({ setToken, setUserRole }) => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -11,11 +12,13 @@ const Auth = ({ setToken, setUserRole }) => {
     e.preventDefault();
     try {
       const url = isSignUp ? 'https://destechnico.vercel.app/api/auth/signup' : 'https://destechnico.vercel.app/api/auth/login';
-      const res = await axios.post(url, { email, password, role });
+      const res = await axios.post(url, { email, password});
       setToken(res.data.token);
-      setUserRole(res.data.role);
+      setUserRole(res.data.user.role);
+      toast.success ( "Login successful");
     } catch (err) {
       console.error('Auth failed:', err.response.data.message);
+      toast.error(err.response.data.message);
     }
   };
 

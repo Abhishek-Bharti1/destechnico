@@ -23,12 +23,13 @@ const ProductList = ({ token }) => {
   }, [searchTerm, category]);
 
   return (
-    <div>
+    <div className='buyers'>
       <input 
         type="text" 
         value={searchTerm} 
         onChange={(e) => setSearchTerm(e.target.value)} 
         placeholder="Search by name" 
+        className='margin-right'
       />
       <input 
         type="text" 
@@ -36,9 +37,10 @@ const ProductList = ({ token }) => {
         onChange={(e) => setCategory(e.target.value)} 
         placeholder="Search by category" 
       />
-      <div>
+      <div className='products'>
         {products.map(product => (
           <div key={product._id}>
+        <img src="https://cgu-odisha.ac.in/wp-content/uploads/2023/05/electronic-engineering-1-1024x682.jpg" height={80} width={120}/>
             <h3>{product.name}</h3>
             <p>Category: {product.category}</p>
             <p>Price: ${product.price}</p>

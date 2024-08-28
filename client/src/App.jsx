@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useState,Suspense,lazy } from 'react';
 import Auth from './components/Auth';
-import SellerDashboard from './pages/SellerDashboard';
-import BuyerDashboard from './pages/BuyerDashboard';
-
+const SellerDashboard = lazy(() => import('./pages/SellerDashboard'));
+const BuyerDashboard  = lazy(() => import('./pages/BuyerDashboard'));
+import Loader from "./components/Loader";
+import { ToastContainer} from 'react-toastify';
+import "./App.css";
 const App = () => {
   const [token, setToken] = useState(null);
   const [userRole, setUserRole] = useState(null);
-
+console.log(userRole);
   return (
-    <div>
+    <div className='App'>
+     <Suspense fallback={<Loader/>}>
       {!token ? (
         <Auth setToken={setToken} setUserRole={setUserRole} />
       ) : userRole === 'seller' ? (
@@ -16,6 +19,8 @@ const App = () => {
       ) : (
         <BuyerDashboard token={token} />
       )}
+      <ToastContainer />
+      </Suspense>
     </div>
   );
 };

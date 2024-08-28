@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ProductForm = ({ product, token, refreshProducts }) => {
   const [name, setName] = useState(product ? product.name : '');
@@ -22,13 +23,15 @@ const ProductForm = ({ product, token, refreshProducts }) => {
         },
       });
       refreshProducts(); // Refresh product list after adding/editing
+      toast.success("Product added successfully");
     } catch (err) {
       console.error('Product save failed:', err.response.data.message);
+      toast.error("Failed to add product");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='formP'>
       <input 
         type="text" 
         value={name} 

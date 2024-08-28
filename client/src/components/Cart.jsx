@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Cart = ({ token }) => {
   const [cart, setCart] = useState([]);
@@ -19,7 +20,7 @@ const Cart = ({ token }) => {
     };
 
     fetchCart();
-  }, [token]);
+  }, [token,setCart]);
 
   const handleRemove = async (productId) => {
     try {
@@ -29,14 +30,16 @@ const Cart = ({ token }) => {
         },
       });
       setCart(cart.filter(item => item.product._id !== productId));
+      toast.success("Remove product successfully");
     } catch (err) {
       console.error('Failed to remove item:', err.response.data.message);
+      toast.error("Failed to remove product");
     }
   };
 
   return (
-    <div>
-      <h2>Your Cart</h2>
+    <div className='cart'>
+      <h2 className='heading'>Your Cart</h2>
       <ul>
         {cart.map(item => (
           <li key={item.product._id}>

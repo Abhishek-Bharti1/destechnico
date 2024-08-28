@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductForm from '../components/ProductForm';
+import { toast } from 'react-toastify';
 
 const SellerDashboard = ({ token }) => {
   const [products, setProducts] = useState([]);
@@ -37,12 +38,13 @@ const SellerDashboard = ({ token }) => {
       fetchProducts(); // Refresh the list after deletion
     } catch (err) {
       console.error('Failed to delete product:', err.response.data.message);
+      toast.error("Failed to delete product");
     }
   };
 
   return (
-    <div>
-      <h1>Seller Dashboard</h1>
+    <div className='dashboard'>
+      <h1 className='heading'>Seller Dashboard</h1>
       <ProductForm 
         product={selectedProduct} 
         token={token} 
