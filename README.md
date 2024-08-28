@@ -64,37 +64,66 @@ This project is a full-stack MERN (MongoDB, Express, React, Node.js) application
    git clone https://github.com/Abhishek-Bharti1/destechnico.git
    cd destechnico
    
-2. **Setup Backend:**
+## Setup Backend
+
+1. Navigate to the server directory:
+    ```bash
     cd server
+    ```
+
+2. Install dependencies:
+    ```bash
     npm install
-   Create a .env file in the server directory and add your environment variables (e.g., MONGO_URI, JWT_SECRET,PORT).
+    ```
 
-3. **Setup Frontend:**
-   cd client
-   npm install
-   
-5. **Run the Application:**
-    Backend - npm start
-    Frontend - npm run dev
+3. Create a `.env` file in the server directory and add your environment variables (e.g., `MONGO_URI`, `JWT_SECRET`, `PORT`).
 
-## API endpoints
+## Setup Frontend
 
-   **Auth**
-     * POST /api/auth/signup - Register a new user (seller or buyer) 
-     * POST /api/auth/login - Login and obtain a JWT token
+1. Navigate to the client directory:
+    ```bash
+    cd client
+    ```
 
-   **Product**
-    * POST /api/products - Add a new product (seller only)
-    * GET /api/products - Get all products
-    * GET /api/products/- Get a product by ID
-    * PUT /api/products/- Update a product (seller only)
-    * DELETE /api/products/- Delete a product (seller only)
-    * GET /api/products/search - Search products by name or category
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-  **Cart**
-    * POST /api/cart/add - Add a product to the cart
-    * DELETE /api/cart/remove - Remove a product from the cart
-    * GET /api/cart - Get all products in the cart
+## Run the Application
+
+1. Start the backend server:
+    ```bash
+    npm start
+    ```
+
+2. Start the frontend application:
+    ```bash
+    npm run dev
+    ```
+
+## API Endpoints
+
+### Auth
+
+- **POST** `/api/auth/signup` - Register a new user (seller or buyer)
+- **POST** `/api/auth/login` - Login and obtain a JWT token
+
+### Product
+
+- **POST** `/api/products` - Add a new product (seller only)
+- **GET** `/api/products` - Get all products
+- **GET** `/api/products/:id` - Get a product by ID
+- **PUT** `/api/products/:id` - Update a product (seller only)
+- **DELETE** `/api/products/:id` - Delete a product (seller only)
+- **GET** `/api/products/search` - Search products by name or category
+
+### Cart
+
+- **POST** `/api/cart/add` - Add a product to the cart
+- **DELETE** `/api/cart/remove` - Remove a product from the cart
+- **GET** `/api/cart` - Get all products in the cart
+
 
 ## Contact
 For any questions, please reach out to abhishekbharti91550@example.com.
