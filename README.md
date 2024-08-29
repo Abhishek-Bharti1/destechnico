@@ -124,6 +124,8 @@ This project is a full-stack MERN (MongoDB, Express, React, Node.js) application
 - **DELETE** `/api/cart/remove` - Remove a product from the cart
 - **GET** `/api/cart` - Get all products in the cart
 
+## Demo vedio link - 
+  https://drive.google.com/drive/folders/1uQEpp2cUFJ_A0xT7toCCgs0kRw5JnKs1?usp=sharing
 
 ## Contact
 For any questions, please reach out to abhishekbharti91550@example.com.
