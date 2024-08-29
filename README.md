@@ -125,7 +125,7 @@ This project is a full-stack MERN (MongoDB, Express, React, Node.js) application
 - **GET** `/api/cart` - Get all products in the cart
 
 ## Demo vedio link - 
-  https://drive.google.com/drive/folders/1uQEpp2cUFJ_A0xT7toCCgs0kRw5JnKs1?usp=sharing
+  [https://drive.google.com/drive/folders/1uQEpp2cUFJ_A0xT7toCCgs0kRw5JnKs1?usp=sharing](https://drive.google.com/file/d/1-QX6YTK4P0rkRa68185Mj-I1AXfwNmZJ/view?usp=sharing)
 
 ## Contact
 For any questions, please reach out to abhishekbharti91550@example.com.
