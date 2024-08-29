@@ -6,13 +6,13 @@ const Auth = ({ setToken, setUserRole }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('buyer'); // Default role
+  const [role, setRole] = useState('buyer');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = isSignUp ? 'https://destechnico.vercel.app/api/auth/signup' : 'https://destechnico.vercel.app/api/auth/login';
-      const res = await axios.post(url, { email, password});
+      const res = await axios.post(url, { email, password,role});
       setToken(res.data.token);
       setUserRole(res.data.user.role);
       toast.success ( "Login successful");
