@@ -12,7 +12,7 @@ const Auth = ({ setToken, setUserRole }) => {
     e.preventDefault();
     try {
       const url = isSignUp ? 'https://destechnico.vercel.app/api/auth/signup' : 'https://destechnico.vercel.app/api/auth/login';
-      const res = await axios.post(url, { email, password,role});
+      const res = await axios.post(url, { name:"Destechnico",email, password,role});
       setToken(res.data.token);
       setUserRole(res.data.user.role);
       toast.success ( "Login successful");
